@@ -1,38 +1,38 @@
 class Ducktypium{
     constructor(crystal_color){
         if (crystal_color==="red" || crystal_color==="blue" || crystal_color==="yellow") {
-            this.crystal_color = crystal_color;
+           this.color = crystal_color;
         }else{
-            console.error('Color must be red, yellow, or blue!');
+            alert('Color must be red, yellow, or blue!');
         }
         this.calibrationSequence = [];
     }
     refract(second_crystal_color){
         if (second_crystal_color==="red" || second_crystal_color==="blue" || second_crystal_color==="yellow") {
             this.second_crystal_color = second_crystal_color;
-            if (this.crystal_color == this.second_crystal_color){
-                console.log(this.crystal_color);
-            }else if (this.crystal_color == "red"){
-                if (this.second_crystal_color == "blue"){
-                    console.log("purple");
+            if (this.second_crystal_color === this.color){
+                return(this.color);
+            }else if (this.second_crystal_color == "red"){
+                if (this.color == "blue"){
+                    return("purple");
                 }else{
-                    console.log("orange");
+                    return("orange");
                 }
-            }else if (this.crystal_color == "blue"){
-                if (this.second_crystal_color == "red"){
-                    console.log("purple");
+            }else if (this.second_crystal_color == "blue"){
+                if (this.color == "red"){
+                    return("purple");
                 }else{
-                    console.log("green");
+                    return("green");
                 }
-            }else if (this.crystal_color == "yellow"){
-                if (this.second_crystal_color == "blue"){
-                    console.log("green");
+            }else if (this.second_crystal_color == "yellow"){
+                if (this.color == "blue"){
+                    return("green");
                 }else{
-                    console.log("orange");
+                    return("orange");
                 }
             }
         }else{
-            console.error('Color must be red, yellow, or blue!');
+            alert('Color must be red, yellow, or blue!');
         }
 
         
@@ -40,9 +40,9 @@ class Ducktypium{
     }
     calibrate(number_array){
         number_array=number_array.sort();
-        console.log(this.number_array=number_array.map(function(item) {
+        this.calibrationSequence = this.number_array=number_array.map(function(item) {
             return item*3;
-          }));
+          });
         
     }
 }
